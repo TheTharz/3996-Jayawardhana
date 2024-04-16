@@ -6,17 +6,17 @@ pipeline {
         sh 'node --version'
       }
     }
-    stages('build'){
+    stage('build'){
       steps {
         sh 'docker build -t jenkins-node-image .'
       }
     }
-    stages('run'){
+    stage('run'){
       steps{
         sh 'docker run -d -p 5000:3000 jenkins-node-image'
       }
     }
-    stages('final'){
+    stage('final'){
       steps{
         sh 'docker ps'
       }
