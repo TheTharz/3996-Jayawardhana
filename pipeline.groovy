@@ -1,14 +1,14 @@
 pipeline {
   agent any
   stages {
-    stage("test"){
-      steps {
-        sh 'node --version'
-      }
-    }
     stage('build'){
       steps {
         sh 'docker build -t jenkins-node-image .'
+      }
+    }
+    stage("test"){
+      steps {
+        sh 'node --version'
       }
     }
     stage('run'){
