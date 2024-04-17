@@ -1,5 +1,8 @@
 pipeline {
   agent any
+  triggers{
+    githubPush()
+  }
   stages {
     stage('build'){
       steps {
@@ -14,6 +17,16 @@ pipeline {
     stage('final'){
       steps{
         sh 'docker ps'
+      }
+    }
+    stage('push'){
+      steps{
+        script{
+          withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker-pwd')]) {
+            sh 'docker login -u thetharz -p ${docker-pwd}'
+          }
+            sh 'docker push thetharz/3996-node-app-image'
+        }
       }
     }
   }
