@@ -12,7 +12,7 @@ This repository contains a simple Node.js application along with a Jenkins pipel
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/your-repo.git
+   git clone https://github.com/TheTharz/3996-Node-Pipeline.git
    ```
 
 2. Set up your Docker environment.
