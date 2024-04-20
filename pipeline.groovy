@@ -24,11 +24,10 @@ pipeline {
         script{
           withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker')]) {
     sh 'docker login -u thetharz -p ${docker}'
-}
-sh 'docker push thetharz/3996-node-app-image'
+  }
+    sh 'docker push thetharz/3996-node-app-image'
         }
       }
     }
   }
-
 }
