@@ -19,15 +19,5 @@ pipeline {
         sh 'docker ps'
       }
     }
-    stage('push'){
-      steps{
-        script{
-          withCredentials([string(credentialsId: 'docker-pwd', variable: 'docker')]) {
-    sh 'docker login -u thetharz -p ${docker}'
-  }
-    sh 'docker push thetharz/3996-node-app-image'
-        }
-      }
-    }
   }
 }
