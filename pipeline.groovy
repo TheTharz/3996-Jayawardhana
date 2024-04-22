@@ -14,7 +14,7 @@ pipeline {
         sh 'docker run -d -p 5000:3000 thetharz/3996-node-app-image'
       }
     }
-    stage('final'){
+    stage('status'){
       steps{
         sh 'docker ps'
       }
